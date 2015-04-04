@@ -1,6 +1,4 @@
-# Oxford Laser Post Processors
-
-Post processors for the Oxford laser
+# Oxford Laser Post Processor
 
 Instructions:
 + Copy Shopbot_oxford_laser.pp into C:\ProgramData\Vectric\PartWorks\V3.5\PostP
