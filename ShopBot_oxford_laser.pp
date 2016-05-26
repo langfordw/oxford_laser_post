@@ -78,6 +78,15 @@ VAR Z_HOME_POSITION = [ZH|A|Z|1.4]
 begin HEADER
 
 "; partworks output"
+"DVAR $POWER"
+"DVAR $FEED"
+"DVAR $IL_PASSES"
+"DVAR $OL_PASSES"
+" "
+"$POWER=[S]"
+"$FEED=[F]"
+"$IL_PASSES=10"
+"$OL_PASSES=1"
 "G90"
 "G71"
 "G92 X0 Y0"
@@ -86,6 +95,7 @@ begin HEADER
 "FARCALL [34]ATTENUATOR.PGM[34] [S]"
 "MSGCLEAR -1"
 "MSGDISPLAY 1, [34]Program Started[34]"
+"RPT $OL_PASSES"
 
 
 +---------------------------------------------------
@@ -162,7 +172,7 @@ begin CCW_ARC_MOVE
 begin FIRST_PLUNGE_MOVE
 
 "BEAMON"
-
+"RPT $IL_PASSES"
 
 +---------------------------------------------------
 + Commands output for Retract Moves
@@ -170,6 +180,7 @@ begin FIRST_PLUNGE_MOVE
 +---------------------------------------------------
 begin RETRACT_MOVE
 
+"ENDRPT"
 "BEAMOFF"
 
 
@@ -178,6 +189,7 @@ begin RETRACT_MOVE
 +---------------------------------------------------
 begin FOOTER
 
+"ENDRPT"
 "BEAMOFF"
 "G1 X0 Y0 F10"
 "MSGDISPLAY 1, [34]Program Finished[34]"
